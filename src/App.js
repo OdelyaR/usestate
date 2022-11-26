@@ -1,14 +1,12 @@
 
 import './App.css';
+import Counter from './Counter';
 
 function App() {
   return (
     <div className="App">
       usestate
-      <button></button>
-      <p>odelya1111</p>
-      <p>again</p>
-      <p>stuff</p>
+      <Counter />
     </div>
   );
 }
