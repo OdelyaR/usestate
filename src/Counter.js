@@ -9,11 +9,15 @@ function Counter() {
         )
         console.log(count)
     }
+    function rst(){
+        setCount(0)
+    }
     return (
       <div>
         <h1>Counter</h1>
         <p>Counter is at {count}</p>
         <button onClick={incr}>Click to add 1 to Counter</button>
+        <button onClick={rst}>Reset Counter</button>
       </div>
     );
   }
