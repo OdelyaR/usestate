@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Counter(props) {
     const {delta} =props
     const [count, setCount] = useState(1)
     const {max} = props
+    const {getRset} = props
+    const {needToReset} = props 
+    const {setHighest}= props
+
+    useEffect(()=>{
+      if(needToReset){
+        setCount(0)
+        getRset(false)
+      }
+    },[needToReset, getRset])
+
+
     function incr(){
         setCount(
             function(oldCount){
               if (oldCount+delta > max){
                 setCount(0)
-              }else{
+              } else {
+                setHighest(oldCount+delta)
                 return oldCount + delta
               }
             }
@@ -16,9 +29,12 @@ function Counter(props) {
         console.log(count)
     }
     function rst(){
-        setCount(0)
+        getRset(true)
+        //setCount(0)
     }
     
+    
+
     return (
       <div>
         <h1>Counter</h1>
